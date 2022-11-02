@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+    analysis_anaconda:
+        image: continuumio/anaconda3:latest
+        container_name: analysis_anaconda
+        ports:
+            - "9090:8888"
+        volumes:
+            - ./:/opt/notebooks
+        command: >-
+            jupyter notebook 
+            --notebook-dir=/opt/notebooks --ip='*' --port=8888 
+            --no-browser --allow-root
